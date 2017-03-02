@@ -49,6 +49,7 @@
     [self.rightView addSubview:self.rightTipLabel];
     
     self.swipeView = [[UIView alloc] init];
+    self.swipeView.backgroundColor = [UIColor orangeColor];
     [self.contentView addSubview:self.swipeView];
     
     self.titleLabel = [[UILabel alloc] init];
@@ -75,7 +76,44 @@
 }
 
 - (void)setConstraits {
+    __weak __typeof(self) weakSelf = self;
     
+    [self.leftView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.bottom.equalTo(weakSelf.contentView);
+        make.width.equalTo(@0);
+    }];
+    
+    [self.leftTipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.bottom.right.equalTo(weakSelf.leftView);
+    }];
+    
+    [self.rightView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.bottom.equalTo(weakSelf.contentView);
+        make.width.equalTo(@0);
+    }];
+    
+    [self.rightTipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.bottom.right.equalTo(weakSelf.leftView);
+    }];
+    
+    [self.swipeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.right.equalTo(weakSelf.contentView);
+        make.left.equalTo(weakSelf.contentView).offset(50);
+    }];
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.swipeView).offset(10);
+        make.right.equalTo(weakSelf.swipeView).offset(-10);
+        make.top.equalTo(weakSelf.swipeView).offset(5);
+        make.bottom.equalTo(weakSelf.subtitleLabel).offset(-5);
+    }];
+    
+    [self.subtitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.swipeView).offset(10);
+        make.right.equalTo(weakSelf.swipeView).offset(-10);
+        make.top.equalTo(weakSelf.titleLabel).offset(5);
+        make.bottom.equalTo(weakSelf.swipeView).offset(-5);
+    }];
 }
 
 
@@ -91,7 +129,15 @@
     // Configure the view for the selected state
 }
 
-
+#pragma mark -- setters
+- (void)setTitle:(NSString *)title {
+    _title = title;
+    self.titleLabel.text = _title;
+}
+- (void)setSubtitle:(NSString *)subtitle {
+    _subtitle = subtitle;
+    self.subtitleLabel.text = _subtitle;
+}
 
 
 #pragma mark -- gesture

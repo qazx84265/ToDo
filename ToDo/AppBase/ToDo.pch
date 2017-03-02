@@ -20,6 +20,8 @@
 
 #import <MGSwipeTableCell/MGSwipeButton.h>
 #import <MGSwipeTableCell/MGSwipeTableCell.h>
+
+#import <Masonry/Masonry.h>
 #endif
 
 

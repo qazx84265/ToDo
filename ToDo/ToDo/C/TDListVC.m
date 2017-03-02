@@ -8,6 +8,7 @@
 
 #import "TDListVC.h"
 #import "ToDo+CoreDataClass.h"
+#import "TDListTVC.h"
 
 
 @interface TDListVC ()<UITableViewDelegate, UITableViewDataSource, MGSwipeTableCellDelegate>
@@ -29,7 +30,10 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.estimatedRowHeight = 66.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.view addSubview:self.tableView];
+    [self.tableView registerClass:[TDListTVC class] forCellReuseIdentifier:@"TDListTVC"];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTodo:)];
     
@@ -84,20 +88,14 @@
 //    return self.tableView.frame.size.width;
 //}
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString* cellID = @"cellid";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-    }
+    //static NSString* cellID = @"TDListTVC";
+    TDListTVC* cell = [tableView dequeueReusableCellWithIdentifier:@"TDListTVC"];
+
     //cell.delegate = self;
     
     ToDo* todo = [self.todoList objectAtIndex:indexPath.row];
-    cell.textLabel.text = todo.title;
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor orangeColor];
-    cell.contentView.backgroundColor = [UIColor yellowColor];
-    cell.contentView.transform = CGAffineTransformMakeTranslation(100, 0);
+    cell.title = @"圣诞节福建省代理费就当减肥来得及发链接打开了房间来得及福利大解放路口等级分类登记法律";
+    cell.subtitle = @"2022-22-22 22:22 -- 2022-22-22 22:22";
     
     return cell;
 }

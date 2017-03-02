@@ -2,16 +2,19 @@ PODS:
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
+  - Masonry (1.0.2)
   - MGSwipeTableCell (1.5.6)
 
 DEPENDENCIES:
   - MagicalRecord (~> 2.3.2)
+  - Masonry (~> 1.0.2)
   - MGSwipeTableCell (~> 1.5.6)
 
 SPEC CHECKSUMS:
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
 
-PODFILE CHECKSUM: 4db9884be66e664063ebeac11f9a3e0243666976
+PODFILE CHECKSUM: 799491aa19c927de2f6b8c3cf52ba5036b6b28bb
 
 COCOAPODS: 1.2.0

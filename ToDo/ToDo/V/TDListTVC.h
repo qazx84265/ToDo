@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ENUM(NSInteger, SwipeDirection) {
-    swipeDirectionLeft2right = 0,
-    swipeDirectionRight2left
-};
+//NS_ENUM(NSInteger, SwipeDirection) {
+//    swipeDirectionLeft2right = 0,
+//    swipeDirectionRight2left
+//};
 
 //@class TDListTVC;
 //@protocol TDListTVC <NSObject>
@@ -20,4 +20,7 @@ NS_ENUM(NSInteger, SwipeDirection) {
 
 @interface TDListTVC : UITableViewCell
 @property (nonatomic, weak) NSIndexPath* cellIdx;
+
+@property (nonatomic, copy) NSString* title;
+@property (nonatomic, copy) NSString* subtitle;
 @end
