@@ -1,0 +1,17 @@
+PODS:
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
+  - MGSwipeTableCell (1.5.6)
+
+DEPENDENCIES:
+  - MagicalRecord (~> 2.3.2)
+  - MGSwipeTableCell (~> 1.5.6)
+
+SPEC CHECKSUMS:
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
+
+PODFILE CHECKSUM: 4db9884be66e664063ebeac11f9a3e0243666976
+
+COCOAPODS: 1.2.0
