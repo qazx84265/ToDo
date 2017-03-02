@@ -8,6 +8,7 @@
 
 #import "TDListVC.h"
 #import "ToDo+CoreDataClass.h"
+#import "TDListTVC.h"
 
 
 @interface TDListVC ()<UITableViewDelegate, UITableViewDataSource, MGSwipeTableCellDelegate>
@@ -29,7 +30,10 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 66.0;
     [self.view addSubview:self.tableView];
+    [self.tableView registerClass:[TDListTVC class] forCellReuseIdentifier:@"TDListTVC"];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTodo:)];
     
@@ -84,21 +88,20 @@
 //    return self.tableView.frame.size.width;
 //}
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString* cellID = @"cellid";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-    }
+    //static NSString* cellID = @"cellid";
+    TDListTVC* cell = [tableView dequeueReusableCellWithIdentifier:@"TDListTVC"];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+//    }
     //cell.delegate = self;
     
-    ToDo* todo = [self.todoList objectAtIndex:indexPath.row];
-    cell.textLabel.text = todo.title;
+    //ToDo* todo = [self.todoList objectAtIndex:indexPath.row];
+    //cell.textLabel.text = todo.title;
+    
+    cell.title = @"就当减肥来得及发电机房间诶偶家佛王府井二姐夫IE减肥哦减肥减肥减肥减肥法";
+    cell.subtitle = @"2022-22-22 22:22 2022-22-22 22:22";
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor orangeColor];
-    cell.contentView.backgroundColor = [UIColor yellowColor];
-    cell.contentView.transform = CGAffineTransformMakeTranslation(100, 0);
-    
     return cell;
 }
 
