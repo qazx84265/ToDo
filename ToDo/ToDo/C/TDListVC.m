@@ -97,6 +97,7 @@
     cell.title = @"圣诞节福建省代理费就当减肥来得及发链接打开了房间来得及福利大解放路口等级分类登记法律";
     cell.subtitle = @"2022-22-22 22:22 -- 2022-22-22 22:22";
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
